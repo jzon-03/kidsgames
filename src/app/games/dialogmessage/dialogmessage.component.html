@@ -1,0 +1,21 @@
+<!-- If answer is correct -->
+<div class="display-1" mat-dialog-title *ngIf="data.isCorrect">
+    {{data.msg}}
+</div>
+<mat-dialog-content>
+    <div class="display-1 text-center" *ngIf="data.isCorrect">
+        {{data.firstNumber}}+{{data.secondNumber}}={{data.sum}}
+    </div>
+<!-- If answer is wrong -->
+    <div class="text-center" *ngIf="!data.isCorrect">
+        <div class="display-5">
+            <button class="btn btn-danger btn-lg" disabled>{{data.selected}}</button>
+             is wrong.
+        </div><br>
+        <div class="display-1">{{data.msg}}</div>
+        
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+    <button mat-raised-button color="primary" mat-dialog-close>Try again</button>
+</mat-dialog-actions>

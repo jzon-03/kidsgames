@@ -1,0 +1,19 @@
+td{
+    height: 100px;
+    white-space: nowrap;
+    font-size: 150px;
+    font-family: 'Butterfly Kids', cursive;
+    font-weight: 600;
+    color: darkblue;
+}
+table{
+    margin: auto;
+}
+
+.choices{
+    border: 1px solid black;
+}
+
+section{
+    text-align: center;
+}

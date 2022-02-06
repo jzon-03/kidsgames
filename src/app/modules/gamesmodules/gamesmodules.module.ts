@@ -8,6 +8,9 @@ import { GamesnavComponent } from 'src/app/gamesnav/gamesnav.component';
 import { GamesmainComponent } from 'src/app/games/gamesmain/gamesmain.component';
 import { MainComponent } from 'src/app/main/main.component';
 import { AppRoutingModule } from 'src/app/app-routing.module';
+import { MaterialModule } from '../material/material.module';
+import { RandomadditionComponent } from '../../games/components/randomaddition/randomaddition.component';
+import { DialogmessageComponent } from '../../games/dialogmessage/dialogmessage.component';
 
 @NgModule({
   declarations: [
@@ -16,11 +19,14 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
     AdditionComponent,
     GamesnavComponent,
     GamesmainComponent,
-    MainComponent
+    MainComponent,
+    RandomadditionComponent,
+    DialogmessageComponent
   ],
   imports: [
     CommonModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MaterialModule
   ]
 })
 export class GamesmodulesModule { }
