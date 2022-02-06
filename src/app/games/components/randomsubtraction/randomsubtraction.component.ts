@@ -3,16 +3,15 @@ import { MatDialog } from '@angular/material/dialog';
 import { DialogmessageComponent } from '../../dialogmessage/dialogmessage.component';
 
 @Component({
-  selector: 'app-randomaddition',
-  templateUrl: './randomaddition.component.html',
-  styleUrls: ['./randomaddition.component.css']
+  selector: 'app-randomsubtraction',
+  templateUrl: './randomsubtraction.component.html',
+  styleUrls: ['./randomsubtraction.component.css']
 })
-export class RandomadditionComponent implements OnInit {
-
+export class RandomsubtractionComponent implements OnInit {
   @ViewChild('myAudio') public myAudio!: ElementRef<HTMLAudioElement>
   firstNumber!: number
   secondNumber!: number
-  sum!: number
+  difference!: number
   userAnswer!: number
   choices!: any[]
   showAnswer = false
@@ -27,17 +26,25 @@ export class RandomadditionComponent implements OnInit {
 
   }
 
+
   initValues() {
     this.showAnswer = false
     var fn = Math.floor(Math.random() * 10)
     var sn = Math.floor(Math.random() * 10)
 
+    // Switches fn and sn so there's no negative value for an answer
+    if(fn<sn){
+      var x=fn
+      fn=sn
+      sn=x
+    }
     this.firstNumber = fn
     this.secondNumber = sn
-    this.sum = this.firstNumber + this.secondNumber
+    
+    this.difference = this.firstNumber - this.secondNumber
 
     this.choices = [
-      this.sum
+      this.difference
     ]
 
     this.setChoicesArr(this.choices)
@@ -51,6 +58,7 @@ export class RandomadditionComponent implements OnInit {
     }
   }
 
+  // Generates wrong answer for choices
   wrongAnswer() {
     var arrVal = Math.floor(Math.random() * 100)
     return arrVal
@@ -78,14 +86,14 @@ export class RandomadditionComponent implements OnInit {
     this.showAnswer = true
     this.myAudio.nativeElement.play()
     var selected = parseInt((e.target as HTMLDivElement).innerText)
-    if (selected == this.sum) {
+    if (selected == this.difference) {
       const dialogRef = this._dialog.open(DialogmessageComponent, {
         data: {
           isCorrect: true,
           firstNumber: this.firstNumber,
           secondNumber: this.secondNumber,
-          answer: this.sum,
-          operator:"+",
+          answer: this.difference,
+          operator:"-",
           msg: "GOOD JOB!!!"
         },
         position: {
@@ -103,7 +111,7 @@ export class RandomadditionComponent implements OnInit {
           isCorrect: false,
           firstNumber: this.firstNumber,
           secondNumber: this.secondNumber,
-          sum: this.sum,
+          difference: this.difference,
           msg: "Try again."
         },
         position: {
@@ -118,5 +126,6 @@ export class RandomadditionComponent implements OnInit {
 
     }
   }
+
 
 }

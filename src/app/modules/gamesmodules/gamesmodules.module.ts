@@ -11,6 +11,7 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
 import { MaterialModule } from '../material/material.module';
 import { RandomadditionComponent } from '../../games/components/randomaddition/randomaddition.component';
 import { DialogmessageComponent } from '../../games/dialogmessage/dialogmessage.component';
+import { RandomsubtractionComponent } from '../../games/components/randomsubtraction/randomsubtraction.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { DialogmessageComponent } from '../../games/dialogmessage/dialogmessage.
     GamesmainComponent,
     MainComponent,
     RandomadditionComponent,
-    DialogmessageComponent
+    DialogmessageComponent,
+    RandomsubtractionComponent
   ],
   imports: [
     CommonModule,

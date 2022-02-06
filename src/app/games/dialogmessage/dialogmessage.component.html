@@ -4,7 +4,7 @@
 </div>
 <mat-dialog-content>
     <div class="display-1 text-center" *ngIf="data.isCorrect">
-        {{data.firstNumber}}+{{data.secondNumber}}={{data.sum}}
+        {{data.firstNumber}} {{data.operator}} {{data.secondNumber}}={{data.answer}}
     </div>
 <!-- If answer is wrong -->
     <div class="text-center" *ngIf="!data.isCorrect">
