@@ -1,4 +1,11 @@
 <h1>Addition</h1>
+<aside>
+    <mat-button-toggle-group [(ngModel)]="level" aria-label="Font Style">
+        <mat-button-toggle value="0" (click)="initValues()">Level 1</mat-button-toggle>
+        <mat-button-toggle value="1" (click)="initValues()">Level 2</mat-button-toggle>
+        <mat-button-toggle value="2" (click)="initValues()">Level 3</mat-button-toggle>
+      </mat-button-toggle-group>
+</aside>
 <table>
     <tbody>
         <tr>

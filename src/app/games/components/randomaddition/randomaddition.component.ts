@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { AdditionsettingsService } from 'src/app/services/additionsettings.service';
 import { DialogmessageComponent } from '../../dialogmessage/dialogmessage.component';
 
 @Component({
@@ -17,20 +18,22 @@ export class RandomadditionComponent implements OnInit {
   choices!: any[]
   showAnswer = false
   numberOfChoices=5
+  level:number=0
 
   constructor(
-    private _dialog: MatDialog
-  ) { }
+    private _dialog: MatDialog,
+    private _additionService:AdditionsettingsService
+  ) {
+   }
 
   ngOnInit(): void {
     this.initValues()
-
   }
 
   initValues() {
     this.showAnswer = false
-    var fn = Math.floor(Math.random() * 10)
-    var sn = Math.floor(Math.random() * 10)
+    var fn = Math.floor(Math.random() * this._additionService.levels[this.level].multiplier)
+    var sn = Math.floor(Math.random() * this._additionService.levels[this.level].multiplier)
 
     this.firstNumber = fn
     this.secondNumber = sn
@@ -46,14 +49,9 @@ export class RandomadditionComponent implements OnInit {
 
   setChoicesArr(array: any[]) {
     while (array.length != this.numberOfChoices) {
-      var val = Math.floor(Math.random() * 100)
-      if ((array.indexOf(val) === -1) && (val<20)) array.push(val);
+      var val = Math.floor(Math.random() * this._additionService.levels[this.level].choicesMultiplier)
+      if ((array.indexOf(val) === -1) && (val<this._additionService.levels[this.level].answerLimiter)) array.push(val);
     }
-  }
-
-  wrongAnswer() {
-    var arrVal = Math.floor(Math.random() * 100)
-    return arrVal
   }
 
   shuffle(array: any[]) {

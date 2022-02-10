@@ -7,6 +7,7 @@ import { GamesmodulesModule } from './modules/gamesmodules/gamesmodules.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './modules/material/material.module';
 import { AdditiondirectiveDirective } from './directives/additiondirective.directive';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,9 @@ import { AdditiondirectiveDirective } from './directives/additiondirective.direc
     BrowserModule,
     AppRoutingModule,
     GamesmodulesModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

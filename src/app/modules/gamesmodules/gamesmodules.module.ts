@@ -12,6 +12,7 @@ import { MaterialModule } from '../material/material.module';
 import { RandomadditionComponent } from '../../games/components/randomaddition/randomaddition.component';
 import { DialogmessageComponent } from '../../games/dialogmessage/dialogmessage.component';
 import { RandomsubtractionComponent } from '../../games/components/randomsubtraction/randomsubtraction.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,9 @@ import { RandomsubtractionComponent } from '../../games/components/randomsubtrac
   imports: [
     CommonModule,
     AppRoutingModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule,
+    ReactiveFormsModule 
   ]
 })
 export class GamesmodulesModule { }
